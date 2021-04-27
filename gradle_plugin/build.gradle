@@ -1,0 +1,24 @@
+plugins {
+    id 'groovy'
+    id 'maven'
+}
+
+dependencies {
+    //gradle sdk
+    implementation gradleApi()
+    //groovy sdk
+    implementation localGroovy()
+
+}
+
+//group和version在后面使用自定义插件的时候会用到
+group='com.dev.hh.gradle_plugin'
+version='1.0.0'
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            //本地的Maven地址设置为D:/repos
+            repository(url: 'file:///Users/hehao3/maven-lib/')
+        }
+    }
+}
